@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app='getToIt'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Get To It!</title>
+
+	<!-- // STYLE -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- // JS -->
+	<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><!-- load jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+</head>
+
+<body ng-controller="mainController">
+	<div class="container">
+		<!-- Header and Todo Amount -->
+		<div class="jumbotron text-center">
+			<h2>Get to it! You have <span class="label label-info">{{ todos.length }}</span> Todos</h2>
+		</div>
+
+		<!-- List -->
+		<div id="todo-list" class="row">
+			<div class="col-sm-4 col-sm-offset-4"></div>
+
+			<!-- Loop the Todos -->
+			<div class="checbox" ng-repeat="todo in todos">
+				<label>
+					<input type="checkbox" ng-click="deleteTodo(todo._id">{{
+					todo.text
+				}}
+				</label>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Forms to make todos -->
+	<div id="todo-form" class="row">
+		<div class="col-sm-8 col-sm-offset-2 text-center">
+			<form>
+				<div class="form-group">
+					<!-- Binding value to formData.text in angular-->
+					<input type="text" class="form-control input-lg text-center" placeholder="WHAT DO YOU NEED TO DO!" ng-model="formData.text">
+				</div>
+
+				<!-- createToDo() will create new todos -->
+				<button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">DO IT!</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
